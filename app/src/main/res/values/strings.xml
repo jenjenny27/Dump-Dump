@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Dump-Dump</string>
+    <string name="learn">LEARN</string>
+    <string name="waste_management">Waste Management</string>
+    <string name="waste_segregation">Waste Segregation</string>
+    <string name="back_to_home">Back to home</string>
+    <string name="compostable">COMPOSTABLE</string>
+    <string name="non_biodegradable">NON-BIODEGRADABLE</string>
+    <string name="health_care">HEALTH CARE</string>
+</resources>
