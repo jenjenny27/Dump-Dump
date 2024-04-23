@@ -20,19 +20,16 @@ public class WasteSegregationActivity extends AppCompatActivity {
         imagebutton = findViewById (R.id.button5);
         imagebutton.setOnClickListener(v -> openCompostableActivity());
 
-        imagebutton = findViewById (R.id.button6);
+        imagebutton = findViewById (R.id.button8);
         imagebutton.setOnClickListener(v -> openRecyclableActivity());
 
-        imagebutton = findViewById (R.id.button7);
+        imagebutton = findViewById (R.id.button6);
         imagebutton.setOnClickListener(v -> openNonBioActivity());
 
-        imagebutton = findViewById (R.id.button8);
+        imagebutton = findViewById (R.id.button7);
         imagebutton.setOnClickListener(v -> openHazardousActivity());
 
         imagebutton = findViewById (R.id.button9);
-        imagebutton.setOnClickListener(v -> openMedicalActivity());
-
-        imagebutton = findViewById (R.id.button10);
         imagebutton.setOnClickListener(v -> openHealthCareActivity());
     }
 
@@ -58,11 +55,6 @@ public class WasteSegregationActivity extends AppCompatActivity {
 
     public void openHazardousActivity(){
         Intent intent = new Intent(this, HazardousPage.class);
-        startActivity(intent);
-    }
-
-    public void openMedicalActivity(){
-        Intent intent = new Intent(this, MedicalPage.class);
         startActivity(intent);
     }
 

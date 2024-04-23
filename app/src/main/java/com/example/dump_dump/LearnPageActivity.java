@@ -16,13 +16,13 @@ public class LearnPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_page);
 
-        button = findViewById (R.id.button4);
+        button = findViewById (R.id.wasteSegButton);
         button.setOnClickListener(v -> openWasteSegAct());
 
         imagebutton = findViewById (R.id.homepageButton);
         imagebutton.setOnClickListener(v -> openHomePageActivity());
 
-        button = findViewById (R.id.button3);
+        button = findViewById (R.id.wasteManageButton);
         button.setOnClickListener(v -> openWasteManageAct());
     }
 

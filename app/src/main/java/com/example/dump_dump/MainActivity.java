@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        MediaPlayer music = android.media.MediaPlayer.create(MainActivity.this, R.raw.music);
-        music.start();
+//        MediaPlayer music = android.media.MediaPlayer.create(MainActivity.this, R.raw.music);
+//        music.start();
     }
 }

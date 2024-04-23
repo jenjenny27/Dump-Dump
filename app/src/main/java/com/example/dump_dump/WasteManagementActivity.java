@@ -2,39 +2,95 @@ package com.example.dump_dump;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import androidx.activity.OnBackPressedCallback;
+import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class WasteManagementActivity extends AppCompatActivity {
 
+    ImageButton homepageButton;
+    ImageButton previousButton;
+
+    ImageButton nextButton;
     private WebView webView;
 
-    @SuppressLint("SetJavaScriptEnabled")
+    @SuppressLint({"SetJavaScriptEnabled", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waste_management);
 
+        homepageButton = findViewById(R.id.homepageButton);
+        homepageButton.setOnClickListener(v -> openLearnPageActivity());
+
+        previousButton = findViewById(R.id.previousButton);
+        previousButton.setOnClickListener(v -> loadPreviouspageContent());
+
+        nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(v -> loadnextpageContent());
+
         webView = findViewById(R.id.webView);
+        webView.getSettings().setJavaScriptEnabled(true); // Enable JavaScript if needed
+        webView.setBackgroundColor(Color.parseColor("#C7CFC1"));
 
-        // Enable JavaScript
-        webView.getSettings().setJavaScriptEnabled(true);
+        // Load the HTML content into the WebView
+        webView.loadUrl("file:///android_asset/waste.html");
+        webView.loadUrl("file:///android_asset/RA9003.html");
 
-        // Load H5P content from assets
-        webView.loadUrl("file:///android_asset/wasteManagement.html");
+        // Set layout parameters to match content dimensions
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
 
+        // Set up WebViewClient to detect page loading
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                // Check if the waste.html page is being loaded
+                if (url.equals("file:///android_asset/waste.html")) {
+                    // Set the height of the WebView to match the screen height
+                    previousButton.setVisibility(android.view.View.GONE);
+                    ViewGroup.LayoutParams params = webView.getLayoutParams();
+                    params.height = getScreenHeight();
+                    webView.setLayoutParams(params);
+                } else {
+                    // Reset the height of the WebView
+                    previousButton.setVisibility(android.view.View.VISIBLE);
+                    ViewGroup.LayoutParams params = webView.getLayoutParams();
+                    params.height = ViewGroup.LayoutParams.MATCH_PARENT;
+                    webView.setLayoutParams(params);
+                }
+            }
+        });
     }
-
 
     public void openLearnPageActivity() {
         Intent intent = new Intent(this, LearnPageActivity.class);
         startActivity(intent);
     }
+
+    private void loadPreviouspageContent() {
+        webView.loadUrl("file:///android_asset/waste.html");
+    }
+
+    private void loadnextpageContent() {
+        String currentUrl = webView.getUrl();
+
+        // Check if the current URL is "file:///android_asset/index.html"
+        if (currentUrl != null && currentUrl.equals("file:///android_asset/index.html")) {
+            // If the current URL is "index.html", load "RA9003.html"
+            webView.loadUrl("file:///android_asset/RA9003.html");
+        }
+    }
+
+    private int getScreenHeight() {
+        return getResources().getDisplayMetrics().heightPixels;
+    }
+
 }
