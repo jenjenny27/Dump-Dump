@@ -2,8 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dirtyWhite">#FEFEFE</color>
     <color name="green">#C7CFC1</color>
     <color name="play">#7ED957</color>
+    <color name="darkGreen">#147846</color>
+    <color name="lightGreen">#009846</color>
     <color name="learn">#FFDE59</color>
+    <color name="switch_thumb_color">#FFFFFF</color> <!-- Pink color for thumb -->
+    <color name="switch_track_color">#00D54F</color> <!-- Grey color for track -->
+    <color name="transparent">#80000000</color>
+    <color name="progreess_green">#5FB329</color>
+
 
 </resources>

@@ -62,6 +62,7 @@ public class NonBioPage extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     private int getScreenHeight() {
         return getResources().getDisplayMetrics().heightPixels;
     }

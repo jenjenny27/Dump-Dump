@@ -7,4 +7,6 @@
     <string name="compostable">COMPOSTABLE</string>
     <string name="non_biodegradable">NON-BIODEGRADABLE</string>
     <string name="health_care">HEALTH CARE</string>
+    <string name="sound">Sound</string>
+    <string name="music">Music</string>
 </resources>

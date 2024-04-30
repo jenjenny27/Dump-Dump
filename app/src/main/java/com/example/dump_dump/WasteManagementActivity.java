@@ -40,7 +40,6 @@ public class WasteManagementActivity extends AppCompatActivity {
 
         // Load the HTML content into the WebView
         webView.loadUrl("file:///android_asset/waste.html");
-        webView.loadUrl("file:///android_asset/RA9003.html");
 
         // Set layout parameters to match content dimensions
         webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
@@ -53,7 +52,7 @@ public class WasteManagementActivity extends AppCompatActivity {
             public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
                 // Check if the waste.html page is being loaded
-                if (url.equals("file:///android_asset/waste.html")) {
+                if (url.equals("file:///android_asset/waste.html") ) {
                     // Set the height of the WebView to match the screen height
                     previousButton.setVisibility(android.view.View.GONE);
                     ViewGroup.LayoutParams params = webView.getLayoutParams();
@@ -66,6 +65,16 @@ public class WasteManagementActivity extends AppCompatActivity {
                     params.height = ViewGroup.LayoutParams.MATCH_PARENT;
                     webView.setLayoutParams(params);
                 }
+
+                if (url.equals("file:///android_asset/quiz.html")) {
+                    // Set the height of the WebView to match the screen height
+                    nextButton.setVisibility(android.view.View.GONE);
+
+                } else {
+                    // Reset the height of the WebView
+                    nextButton.setVisibility(android.view.View.VISIBLE);
+                }
+
             }
         });
     }
@@ -76,18 +85,38 @@ public class WasteManagementActivity extends AppCompatActivity {
     }
 
     private void loadPreviouspageContent() {
-        webView.loadUrl("file:///android_asset/waste.html");
+        String currentUrl = webView.getUrl();
+
+        // Check if the current URL is "file:///android_asset/waste.html"
+        if (currentUrl != null && currentUrl.equals("file:///android_asset/RA9003.html")) {
+            // If the current URL is "waste.html", load "RA9003.html"
+            webView.loadUrl("file:///android_asset/waste.html");
+        }
+        if (currentUrl != null && currentUrl.equals("file:///android_asset/index.html")){
+            webView.loadUrl("file:///android_asset/RA9003.html");
+        }
+        if (currentUrl != null && currentUrl.equals("file:///android_asset/quiz.html")){
+            webView.loadUrl("file:///android_asset/index.html");
+        }
     }
 
     private void loadnextpageContent() {
         String currentUrl = webView.getUrl();
 
-        // Check if the current URL is "file:///android_asset/index.html"
-        if (currentUrl != null && currentUrl.equals("file:///android_asset/index.html")) {
-            // If the current URL is "index.html", load "RA9003.html"
+        // Check if the current URL is "file:///android_asset/waste.html"
+        if (currentUrl != null && currentUrl.equals("file:///android_asset/waste.html")) {
+            // If the current URL is "waste.html", load "RA9003.html"
             webView.loadUrl("file:///android_asset/RA9003.html");
         }
+        if (currentUrl != null && currentUrl.equals("file:///android_asset/RA9003.html")){
+            webView.loadUrl("file:///android_asset/index.html");
+        }
+        if (currentUrl != null && currentUrl.equals("file:///android_asset/index.html")){
+            webView.loadUrl("file:///android_asset/quiz.html");
+
+        }
     }
+
 
     private int getScreenHeight() {
         return getResources().getDisplayMetrics().heightPixels;

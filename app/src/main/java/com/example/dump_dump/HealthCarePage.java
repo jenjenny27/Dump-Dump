@@ -60,6 +60,7 @@ public class HealthCarePage extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     private int getScreenHeight() {
         return getResources().getDisplayMetrics().heightPixels;
     }

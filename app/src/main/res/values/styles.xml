@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="AppTheme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Make the background transparent -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- Ensure that the activity's content is visible -->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="CustomProgressBarStyle" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:indeterminateDrawable">@drawable/custom_progress_bar</item>
+    </style>
+
+    <style name="CustomSwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+        <!-- Customize the thumb (the draggable part) -->
+        <item name="android:thumb">@drawable/custom_switch_thumb</item>
+        <!-- Customize the track (the background) -->
+        <item name="android:track">@drawable/custom_switch_track</item>
+
+        <!-- Customize other attributes if needed -->
+    </style>
+
+</resources>

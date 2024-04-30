@@ -1,14 +1,36 @@
 package com.example.dump_dump;
 
+import android.annotation.SuppressLint;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.IBinder;
 import android.widget.ImageButton;
 
 public class WasteSegregationActivity extends AppCompatActivity {
     ImageButton imagebutton;
+    ImageButton settingButton;
+    private MediaPlayer mediaPlayer;
 
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            BackgroundServices.LocalBinder binder = (BackgroundServices.LocalBinder) service;
+            BackgroundServices backgroundServices = binder.getService();
+            mediaPlayer = backgroundServices.getMediaPlayer();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mediaPlayer = null;
+        }
+    };
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +53,9 @@ public class WasteSegregationActivity extends AppCompatActivity {
 
         imagebutton = findViewById (R.id.button9);
         imagebutton.setOnClickListener(v -> openHealthCareActivity());
+
+        settingButton = findViewById(R.id.settingButton);
+        settingButton.setOnClickListener(v -> showAlertDialogue());
     }
 
     public void openLearnPageActivity(){
@@ -60,6 +85,20 @@ public class WasteSegregationActivity extends AppCompatActivity {
 
     public void openHealthCareActivity(){
         Intent intent = new Intent(this, HealthCarePage.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        unbindService(connection);
+    }
+
+    public void showAlertDialogue(){
+        Intent intent = new Intent(this, SettingPage.class);
         startActivity(intent);
     }
 

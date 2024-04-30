@@ -1,7 +1,6 @@
 package com.example.dump_dump;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -14,8 +13,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     Handler handler;
-
-//    MediaPlayer MediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 3000);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        Intent serviceIntent = new Intent(this, BackgroundServices.class);
+        startService(serviceIntent);
+    }
 
-//        MediaPlayer music = android.media.MediaPlayer.create(MainActivity.this, R.raw.music);
-//        music.start();
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish(); // Finish the current activity
     }
 }
