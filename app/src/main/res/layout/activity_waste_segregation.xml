@@ -45,7 +45,7 @@
         android:id="@+id/label5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="COMPOSTABLE"
+        android:text="@string/compostable"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -75,7 +75,7 @@
         android:id="@+id/label6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NON -BIODEGRADABLE"
+        android:text="@string/non_biodegradable"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -105,7 +105,7 @@
         android:id="@+id/label7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HAZARDOUS"
+        android:text="@string/hazardous"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -135,7 +135,7 @@
         android:id="@+id/label8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RECYCLABLE"
+        android:text="@string/recyclable"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -154,10 +154,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintHorizontal_bias="0.873"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724"
+        app:layout_constraintVertical_bias="0.694"
         app:srcCompat="@drawable/medical"
         tools:ignore="ContentDescription" />
 
@@ -165,7 +165,7 @@
         android:id="@+id/label9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HEALTH CARE"
+        android:text="@string/health_care"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -186,6 +186,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/settings" />
+        app:srcCompat="@drawable/settings"
+        android:importantForAccessibility="no" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

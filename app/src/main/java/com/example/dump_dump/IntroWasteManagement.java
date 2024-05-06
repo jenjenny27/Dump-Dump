@@ -12,9 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class IntroWasteManagement extends AppCompatActivity {
 
     ImageButton imagebutton;
-    private WebView webView;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "SetJavaScriptEnabled"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +22,7 @@ public class IntroWasteManagement extends AppCompatActivity {
         imagebutton = findViewById (R.id.homepageButton);
         imagebutton.setOnClickListener(v -> openLearnPageActivity());
 
-        webView = findViewById(R.id.webView);
+        WebView webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true); // Enable JavaScript if needed
 
         webView.loadUrl("file:///android_asset/waste.html");

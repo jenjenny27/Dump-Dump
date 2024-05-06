@@ -1,8 +1,8 @@
 package com.example.dump_dump;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -14,11 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class HazardousPage extends AppCompatActivity {
 
     ImageButton imagebutton;
-    ImageButton previousButton;
-
-    ImageButton nextButton;
     private WebView webView;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,17 +40,15 @@ public class HazardousPage extends AppCompatActivity {
             public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
                 // Check if the waste.html page is being loaded
+                ViewGroup.LayoutParams params = webView.getLayoutParams();
                 if (url.equals("file:///android_asset/hazardous.html")) {
                     // Set the height of the WebView to match the screen height
-                    ViewGroup.LayoutParams params = webView.getLayoutParams();
                     params.height = getScreenHeight();
-                    webView.setLayoutParams(params);
                 } else {
                     // Reset the height of the WebView
-                    ViewGroup.LayoutParams params = webView.getLayoutParams();
                     params.height = ViewGroup.LayoutParams.MATCH_PARENT;
-                    webView.setLayoutParams(params);
                 }
+                webView.setLayoutParams(params);
             }
         });
     }

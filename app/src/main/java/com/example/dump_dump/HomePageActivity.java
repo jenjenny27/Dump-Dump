@@ -19,7 +19,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
-    private ServiceConnection connection = new ServiceConnection() {
+    private final ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
             BackgroundServices.LocalBinder binder = (BackgroundServices.LocalBinder) service;
@@ -48,12 +48,6 @@ public class HomePageActivity extends AppCompatActivity {
 
         settingButton = findViewById(R.id.settingButton);
         settingButton.setOnClickListener(v -> showAlertDialogue());
-
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
 
 
     }

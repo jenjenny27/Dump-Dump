@@ -21,5 +21,9 @@
 
         <!-- Customize other attributes if needed -->
     </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Other theme attributes -->
+        <item name="android:screenOrientation">landscape</item>
+    </style>
 
 </resources>

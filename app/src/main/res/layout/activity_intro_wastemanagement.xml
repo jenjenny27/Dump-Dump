@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green">
@@ -10,8 +9,8 @@
     <!--back button-->
     <ImageButton
         android:id="@+id/homepageButton"
-        android:layout_width="57dp"
-        android:layout_height="49dp"
+        android:layout_width="45dp"
+        android:layout_height="51dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +34,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/settings"
-        tools:ignore="ContentDescription" />
+        android:contentDescription="@string/navigate_to_settings"/>
 
     <WebView
         android:id="@+id/webView"

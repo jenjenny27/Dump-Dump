@@ -1,11 +1,8 @@
 package com.example.dump_dump;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
@@ -15,13 +12,11 @@ public class BackgroundServices extends Service {
 
     private final IBinder binder = new LocalBinder();
     private MediaPlayer mediaPlayer;
-    private AudioManager audioManager;
     private ScreenOffReceiver screenOffReceiver;
-    private boolean wasPlayingBeforeScreenOff = false;
+
     @Override
     public void onCreate() {
         super.onCreate();
-        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
         mediaPlayer = MediaPlayer.create(this, R.raw.music);
         if (mediaPlayer == null) {
             Log.e("BackgroundServices", "Failed to create MediaPlayer");
@@ -29,19 +24,13 @@ public class BackgroundServices extends Service {
             return;
         }
 
-        mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
-            @Override
-            public boolean onError(MediaPlayer mp, int what, int extra) {
-                Log.e("BackgroundServices", "MediaPlayer error: " + what + ", " + extra);
-                return false;
-            }
+        mediaPlayer.setOnErrorListener((mp, what, extra) -> {
+            Log.e("BackgroundServices", "MediaPlayer error: " + what + ", " + extra);
+            return false;
         });
 
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                // Handle completion if needed
-            }
+        mediaPlayer.setOnCompletionListener(mp -> {
+            // Handle completion if needed
         });
 
         mediaPlayer.start();
@@ -87,6 +76,7 @@ public class BackgroundServices extends Service {
     }
 
     public void resumeMusic() {
+        boolean wasPlayingBeforeScreenOff = true;
         if (wasPlayingBeforeScreenOff) {
             mediaPlayer.start();
         }

@@ -9,4 +9,14 @@
     <string name="health_care">HEALTH CARE</string>
     <string name="sound">Sound</string>
     <string name="music">Music</string>
+    <string name="play">PLAY</string>
+    <string name="todo">TODO</string>
+    <string name="navigate_to_homepage">Navigate to homepage</string>
+    <string name="navigate_to_settings">Navigate to settings</string>
+    <string name="navigate_to_play">Navigate to play</string>
+    <string name="settings">SETTINGS</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="hazardous">HAZARDOUS</string>
+    <string name="recyclable">RECYCLABLE</string>
 </resources>

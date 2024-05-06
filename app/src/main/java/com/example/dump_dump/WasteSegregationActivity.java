@@ -16,7 +16,7 @@ public class WasteSegregationActivity extends AppCompatActivity {
     ImageButton settingButton;
     private MediaPlayer mediaPlayer;
 
-    private ServiceConnection connection = new ServiceConnection() {
+    private final ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
             BackgroundServices.LocalBinder binder = (BackgroundServices.LocalBinder) service;

@@ -9,34 +9,40 @@
     tools:context=".HomePageActivity">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/button1"
-        android:text="PLAY"
-        android:textColor="@color/black"
+        android:text="@string/play"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:paddingStart="42dp"
+        android:paddingEnd="42dp"
+        android:contentDescription="@string/navigate_to_play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.365" />
+        app:layout_constraintVertical_bias="0.365"/>
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/button2"
-        android:text="LEARN"
+        android:text="@string/learn"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/button1"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
 
     <ImageButton
         android:id="@+id/settingButton"
@@ -48,6 +54,8 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/settings" />
+        app:srcCompat="@drawable/settings"
+        android:contentDescription="@string/todo"
+        android:importantForAccessibility="no" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

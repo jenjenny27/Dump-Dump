@@ -14,46 +14,55 @@
         android:layout_height="49dp"
         android:background="@null"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/navigate_to_homepage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047"
-        app:srcCompat="@drawable/homepage" />
+        app:srcCompat="@drawable/homepage"
+        tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/wasteManageButton"
-        android:layout_width="391dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:background="@drawable/button3"
         android:text="@string/waste_management"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="10dp"
+        android:contentDescription="@string/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.34"
+        tools:ignore="ContentDescription"/>
 
     <Button
         android:id="@+id/wasteSegButton"
-        android:layout_width="391dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/button4"
         android:text="@string/waste_segregation"
-        android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
         android:textStyle="bold"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wasteManageButton"
-        app:layout_constraintVertical_bias="0.167" />
+        app:layout_constraintVertical_bias="0.167"
+        tools:ignore="ContentDescription"/>
 
     <ImageButton
         android:id="@+id/settingButton"
@@ -63,6 +72,7 @@
         android:layout_marginBottom="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/navigate_to_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/settings" />
